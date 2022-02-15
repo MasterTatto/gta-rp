@@ -9,7 +9,6 @@ type ButtonType = {
 }
 
 const Button = ({title, onClick, className, type}: ButtonType) => {
-    console.log(className)
     return (
         <button onClick={onClick} type={type} className={`${s.btn} ${className}`}>{title}</button>
     );
