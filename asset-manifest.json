@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/gta-rp/static/css/main.f6134682.css",
-    "main.js": "/gta-rp/static/js/main.2b05db86.js",
+    "main.css": "/gta-rp/static/css/main.fb80f6b6.css",
+    "main.js": "/gta-rp/static/js/main.77d52cc3.js",
     "static/js/787.ff49af97.chunk.js": "/gta-rp/static/js/787.ff49af97.chunk.js",
     "static/media/background_start_game.png": "/gta-rp/static/media/background_start_game.8a51b7244cf91a0eb702.png",
+    "static/media/background_auth.png": "/gta-rp/static/media/background_auth.3d61f71cc157a34dc729.png",
     "static/media/background_block_start_game.jpg": "/gta-rp/static/media/background_block_start_game.f6abb1277ccf7b47a784.jpg",
     "static/media/web_site.svg": "/gta-rp/static/media/web_site.6b1c34b0202280ab73d0a3c29a944aea.svg",
     "static/media/discord.svg": "/gta-rp/static/media/discord.ca88ae991538355af05b3284b91cb065.svg",
@@ -11,12 +12,12 @@
     "static/media/vk.svg": "/gta-rp/static/media/vk.5b50fb1ac5f2a685e0de60f0310ef9c8.svg",
     "index.html": "/gta-rp/index.html",
     "static/media/youtube.svg": "/gta-rp/static/media/youtube.330d5b5ff4a0bce04fc41834e3819310.svg",
-    "main.f6134682.css.map": "/gta-rp/static/css/main.f6134682.css.map",
-    "main.2b05db86.js.map": "/gta-rp/static/js/main.2b05db86.js.map",
+    "main.fb80f6b6.css.map": "/gta-rp/static/css/main.fb80f6b6.css.map",
+    "main.77d52cc3.js.map": "/gta-rp/static/js/main.77d52cc3.js.map",
     "787.ff49af97.chunk.js.map": "/gta-rp/static/js/787.ff49af97.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6134682.css",
-    "static/js/main.2b05db86.js"
+    "static/css/main.fb80f6b6.css",
+    "static/js/main.77d52cc3.js"
   ]
 }
