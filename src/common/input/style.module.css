@@ -2,8 +2,9 @@
     position: relative;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 10px;
+    flex-direction: column;
 }
 
 .input input {
@@ -15,7 +16,7 @@
     border: none;
     padding: 0 50px;
     color: #fff;
-    font-size: 21px;
+    font-size: 19px;
 }
 
 .input input::-webkit-input-placeholder {
@@ -32,4 +33,77 @@
     height: 15px;
     width: 15px;
     left: 20px;
+    top: 18px;
 }
+
+.capsLock {
+    font-family: Roboto, 'sans-serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFD80E;
+    position: absolute;
+    display: flex;
+    right: -228px;
+}
+
+.language {
+    font-family: Roboto, 'sans-serif';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #949494;
+    position: absolute;
+    display: flex;
+    right: -135px;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 14px;
+    bottom: -14px;
+    padding: 3px;
+    display: none
+}
+
+.input input:invalid[data-focused='true'] ~ span {
+    display: block
+}
+
+.scaleSecurity {
+    display: flex;
+    align-items: center;
+    padding: 12px 0 1px 50px;
+}
+
+.scaleSecurity__box {
+    width: 185px;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.scaleSecurity__item {
+    height: 2px;
+    width: 33px;
+    background: #fff;
+}
+
+.scaleSecurity__title {
+    font-family: Roboto, 'sans-serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #949494;
+    margin-left: 10px;
+}
+
+.active {
+    height: 2px;
+    width: 33px;
+    background: #FFD80E
+}
+

@@ -23,7 +23,7 @@ const AuthContainer = () => {
                     </div>
                 </div>
                 <div className={s.authorization}>
-                    <h2>Авторизация</h2>
+                    <h2>{(navigation === 'login' && 'Авторизация') || (navigation === 'regist' && 'Регистраиця')}</h2>
                     <p className={s.authorization__title}>Добро пожаловать на сервер.<br/> Войдите под своим аккаунтом или зарегестрируйте новый</p>
                     <div className={s.navigate}>
                         <div className={`${s.navigate__login} ${navigation === 'login' && s.active}`}

@@ -45,9 +45,9 @@
 }
 
 .checkbox[type=checkbox]:checked:before {
-    background: #3ea8df;
-    color: rgba(255, 255, 255, 0.85) !important;
-    border: 2px solid #3ea8df;
+    background: #222222;
+    color: #FFD80E !important;
+    border: 1px solid #525251;
 }
 
 .button_box {
@@ -125,3 +125,17 @@
 .icons:nth-child(2) {
     margin-left: 25px;
 }
+
+.capsLockInputBox {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.inputs_regist {
+    width: 346px !important;
+}
+
