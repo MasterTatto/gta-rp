@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gta-rp/static/css/main.fd9a4b92.css",
-    "main.js": "/gta-rp/static/js/main.c24f937d.js",
+    "main.css": "/gta-rp/static/css/main.a7b5c6ae.css",
+    "main.js": "/gta-rp/static/js/main.b11f856b.js",
     "static/js/787.ff49af97.chunk.js": "/gta-rp/static/js/787.ff49af97.chunk.js",
     "static/media/background_start_game.png": "/gta-rp/static/media/background_start_game.8a51b7244cf91a0eb702.png",
     "static/media/background_auth.png": "/gta-rp/static/media/background_auth.3d61f71cc157a34dc729.png",
@@ -18,12 +18,13 @@
     "static/media/youtube.svg": "/gta-rp/static/media/youtube.330d5b5ff4a0bce04fc41834e3819310.svg",
     "static/media/facebook.svg": "/gta-rp/static/media/facebook.498d0c191900adc7ae7ac99a13991f5d.svg",
     "static/media/google.svg": "/gta-rp/static/media/google.3d4fb0818f0121dc38d91535fc1c71d6.svg",
-    "main.fd9a4b92.css.map": "/gta-rp/static/css/main.fd9a4b92.css.map",
-    "main.c24f937d.js.map": "/gta-rp/static/js/main.c24f937d.js.map",
+    "static/media/validate.svg": "/gta-rp/static/media/validate.448eb05fa5ff1da0e6a187248818b302.svg",
+    "main.a7b5c6ae.css.map": "/gta-rp/static/css/main.a7b5c6ae.css.map",
+    "main.b11f856b.js.map": "/gta-rp/static/js/main.b11f856b.js.map",
     "787.ff49af97.chunk.js.map": "/gta-rp/static/js/787.ff49af97.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd9a4b92.css",
-    "static/js/main.c24f937d.js"
+    "static/css/main.a7b5c6ae.css",
+    "static/js/main.b11f856b.js"
   ]
 }
