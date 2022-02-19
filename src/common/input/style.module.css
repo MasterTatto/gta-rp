@@ -75,7 +75,7 @@
 .scaleSecurity {
 	display: flex;
 	align-items: center;
-	padding: 12px 0 1px 50px;
+	margin: 15px 0 -1px 50px;
 }
 
 .scaleSecurity__box {
@@ -109,7 +109,7 @@
 
 .validateSVG {
 	position: absolute;
-	right: -70px;
-	top: 17px;
+	right: -84px;
+	top: 20px;
 }
 

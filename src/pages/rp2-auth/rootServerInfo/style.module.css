@@ -1,0 +1,54 @@
+.root_info {
+    height: 619px;
+    background: #000000;
+    border: 1px solid #FFD80E;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 30px 25px 35px 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.root_info h2 {
+    font-family: Roboto, 'sans-serif';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #FFFFFF;
+
+}
+
+.root_info p {
+    font-family: Roboto, 'sans-serif';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+.root_info__box_button {
+    display: flex;
+}
+
+.btn {
+    width: 200px
+}
+
+.btn_1 {
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: flex-start;
+}
+
+.btn_2 {
+    background: #949494;
+    color: #fff;
+}
+

@@ -8,6 +8,7 @@ import webSite from '../../../assets/icons/login-with/web_site.svg'
 import Button from "../../../common/button/button";
 import userIcon from "../../../assets/icons/input-icons/user.svg";
 import passwordIcon from "../../../assets/icons/input-icons/password.svg";
+import Checkbox from "../../../common/checbox/chekbox";
 
 const iconsLoginWith = [
     {icon: vk},
@@ -17,6 +18,7 @@ const iconsLoginWith = [
 ]
 
 const Login = () => {
+    const [rememberMe, setRememberMe] = useState(false)
     const [values, setValues] = useState({
         userName: '',
         password: '',
@@ -58,10 +60,8 @@ const Login = () => {
                                handleChange={handleChange}  {...input}/>
                     ))}
                 </div>
-                <div className={s.checkbox_box}>
-                    <input type="checkbox" className={s.checkbox}/>
-                    <span>Запомнить меня</span>
-                </div>
+                <Checkbox className={s.checkbox_box} checked={rememberMe} title={'Запомнить меня'}
+                          onChange={setRememberMe}/>
                 <div className={s.button_box}>
                     <Button title={'Войти'}/>
                 </div>

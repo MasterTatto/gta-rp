@@ -6,10 +6,19 @@ import background_login from "../../../assets/images/background_auth.png";
 import Container from "../../../helpers/container/container";
 import Login from "../login";
 import Registration from "../registration";
+import RootServerInfo from "../rootServerInfo";
 
 const AuthContainer = () => {
     const [navigation, setNavigation] = useState<'login' | 'regist'>('login');
+    const [checkedRoot, setCheckedRoot] = useState(false);
+    const [showRootServer, setShowRootServer] = useState(false);
 
+    const title = (navigation === 'login' && 'Авторизация') || (navigation === 'regist' && 'Регистраиця')
+    const subTitle =
+        navigation === 'regist' ?
+            <p className={s.sub_title_regist}>Добро пожаловать на сервер, вам необходимо пройти регистрацию</p> :
+            <p>Добро пожаловать на сервер.<br/>Войдите под своим аккаунтом или зарегестрируйте
+                новый</p>
 
     return (
         <div className={s.login} style={{backgroundImage: `url(${background_login})`}}>
@@ -23,19 +32,26 @@ const AuthContainer = () => {
                     </div>
                 </div>
                 <div className={s.authorization}>
-                    <h2>{(navigation === 'login' && 'Авторизация') || (navigation === 'regist' && 'Регистраиця')}</h2>
-                    <p className={s.authorization__title}>Добро пожаловать на сервер.<br/> Войдите под своим аккаунтом или зарегестрируйте новый</p>
-                    <div className={s.navigate}>
-                        <div className={`${s.navigate__login} ${navigation === 'login' && s.active}`}
-                             onClick={() => setNavigation('login')}>Авторизация
-                        </div>
-                        <div className={`${s.navigate__regist} ${navigation === 'regist' && s.active}`}
-                             onClick={() => setNavigation('regist')}>Регистрация
-                        </div>
-                    </div>
+                    {showRootServer ?
+                        <RootServerInfo setCheckedRoot={setCheckedRoot} setShowRootServer={setShowRootServer}/> : <>
+                            <h2>{title}</h2>
+                            <p className={s.authorization__title}>{subTitle}</p>
+                            <div className={s.navigate}>
+                                <div className={`${s.navigate__login} ${navigation === 'login' && s.active}`}
+                                     onClick={() => setNavigation('login')}>Авторизация
+                                </div>
+                                <div className={`${s.navigate__regist} ${navigation === 'regist' && s.active}`}
+                                     onClick={() => setNavigation('regist')}>Регистрация
+                                </div>
+                            </div>
 
-                    {navigation === 'login' && <Login/>}
-                    {navigation === 'regist' && <Registration/>}
+                            {navigation === 'login' && <Login/>}
+                            {navigation === 'regist' && !showRootServer &&
+                                <Registration setShowRootServer={setShowRootServer}
+                                              checkedRoot={checkedRoot} setCheckedRoot={setCheckedRoot}/>}
+                        </>
+                    }
+
                 </div>
             </Container>
         </div>
