@@ -1,109 +1,115 @@
 .input {
-    position: relative;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    margin-top: 10px;
-    flex-direction: column;
+	position: relative;
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	margin-top: 10px;
+	flex-direction: column;
 }
 
 .input input {
-    height: 50px;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    outline: none;
-    border: none;
-    padding: 0 50px;
-    color: #fff;
-    font-size: 19px;
+	height: 50px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	padding: 0 50px;
+	color: #fff;
+	font-size: 19px;
 }
 
 .input input::-webkit-input-placeholder {
-    font-family: Roboto, 'sans-serif';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    color: #949494;
+	font-family: Roboto, 'sans-serif';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+	color: #949494;
 }
 
-.input img {
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    left: 20px;
-    top: 18px;
+.logo_input {
+	position: absolute;
+	height: 15px;
+	width: 15px;
+	left: 20px;
+	top: 18px;
 }
 
 .capsLock {
-    font-family: Roboto, 'sans-serif';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    color: #FFD80E;
-    position: absolute;
-    display: flex;
-    right: -228px;
+	font-family: Roboto, 'sans-serif';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 21px;
+	color: #ffd80e;
+	position: absolute;
+	display: flex;
+	right: -228px;
 }
 
 .language {
-    font-family: Roboto, 'sans-serif';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
-    color: #949494;
-    position: absolute;
-    display: flex;
-    right: -135px;
+	font-family: Roboto, 'sans-serif';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+	color: #949494;
+	position: absolute;
+	display: flex;
+	right: -135px;
 }
 
 .errorMessage {
-    color: red;
-    font-size: 14px;
-    bottom: -14px;
-    padding: 3px;
-    display: none
+	color: red;
+	font-size: 14px;
+	bottom: -14px;
+	padding: 3px;
+	display: none;
 }
 
 .input input:invalid[data-focused='true'] ~ span {
-    display: block
+	display: block;
 }
 
 .scaleSecurity {
-    display: flex;
-    align-items: center;
-    padding: 12px 0 1px 50px;
+	display: flex;
+	align-items: center;
+	padding: 12px 0 1px 50px;
 }
 
 .scaleSecurity__box {
-    width: 185px;
-    display: flex;
+	width: 185px;
+	display: flex;
 
-    justify-content: space-between;
+	justify-content: space-between;
 }
 
 .scaleSecurity__item {
-    height: 2px;
-    width: 33px;
-    background: #fff;
+	height: 2px;
+	width: 33px;
+	background: #fff;
 }
 
 .scaleSecurity__title {
-    font-family: Roboto, 'sans-serif';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    color: #949494;
-    margin-left: 10px;
+	font-family: Roboto, 'sans-serif';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 14px;
+	color: #949494;
+	margin-left: 10px;
 }
 
 .active {
-    height: 2px;
-    width: 33px;
-    background: #FFD80E
+	height: 2px;
+	width: 33px;
+	background: #ffd80e;
+}
+
+.validateSVG {
+	position: absolute;
+	right: -70px;
+	top: 17px;
 }
 
