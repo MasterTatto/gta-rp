@@ -1,13 +1,13 @@
 import React from 'react';
 import s from './style.module.css'
 
-type carouselType = {
+type CarouselType = {
     delay: number
     data: Array<{ title: string }>
     length: number
 }
 
-const Carousel = ({delay, data, length}: carouselType) => {
+const Carousel = ({delay, data, length}: CarouselType) => {
     const [index, setIndex] = React.useState(0);
     const timeoutRef = React.useRef(null);
 

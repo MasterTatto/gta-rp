@@ -2,7 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useEffect, useState} from 'react';
 import s from './style.module.css';
 import validateSVG from '../../assets/icons/input-icons/validate.svg';
 
-type inputType = {
+type InputType = {
     type: string;
     name: string;
     icon: string;
@@ -10,7 +10,6 @@ type inputType = {
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
     value: string;
     errorMessage: string;
-    required: boolean;
     pattern: string;
     showKeyBoardInfo?: boolean;
     className?: string;
@@ -18,7 +17,7 @@ type inputType = {
     securityPasswordNumber?: number;
     securityPasswordTitle?: string
     showValidateSvg?: boolean;
-    maxLength?:number
+    maxLength?: number
 }
 
 const Input = ({
@@ -31,14 +30,13 @@ const Input = ({
                    placeholder,
                    showKeyBoardInfo,
                    name,
-                   required,
                    pattern,
                    securityPassword,
                    securityPasswordNumber,
                    securityPasswordTitle,
                    showValidateSvg,
                    maxLength
-               }: inputType) => {
+               }: InputType) => {
     const [showCaps, setShowCaps] = useState<boolean>(false);
     const [showLanguage, setShowLanguage] = useState<string>('');
     const [focused, setFocused] = useState<boolean>(false);
@@ -77,7 +75,6 @@ const Input = ({
         <div className={`${s.input} ${className}`}>
             <input
                 pattern={pattern}
-                required={required}
                 type={type}
                 placeholder={placeholder}
                 value={value}
@@ -91,6 +88,7 @@ const Input = ({
                 }}
                 maxLength={maxLength}
                 data-focused={focused.toString()}
+                required
                 onFocus={() => name === 'confirmPassword' && setFocused(true)}
             />
             {securityPassword && (

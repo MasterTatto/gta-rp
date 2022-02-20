@@ -7,7 +7,7 @@ import emailIcon from '../../../assets/icons/input-icons/email.svg';
 import promoIcon from '../../../assets/icons/input-icons/promo.svg';
 import Button from '../../../common/button/button';
 import {scaleSecurePassword} from "../../../helpers/scaleSecurePassword/scale";
-import Checkbox from "../../../common/checbox/chekbox";
+import Checkbox from "../../../common/checkbox/checkbox";
 
 export type ValuesType = {
     userName: string
@@ -24,7 +24,7 @@ export type InputsType = {
     icon: string
     errorMessage: string
     pattern: string
-    required: boolean
+    required?: boolean
     showKeyBoardInfo?: boolean
     securityPassword?: boolean
     showValidateSvg?: boolean
@@ -58,7 +58,6 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 icon: userIcon,
                 errorMessage: 'Логин должен состоять от 4-16 символов',
                 pattern: '^[A-Za-z0-9-А-Яа-я]{4,16}$',
-                required: true,
                 showValidateSvg: /^[A-Za-z0-9-А-Яа-я]{4,16}$/.test(values.userName),
             },
             {
@@ -69,7 +68,6 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 errorMessage: 'Пароль должен состоять от 6-20 символов',
                 showKeyBoardInfo: true,
                 pattern: '^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$',
-                required: true,
                 securityPassword: true,
                 maxLength: 20,
                 showValidateSvg: /^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$/.test(values.password),
@@ -81,7 +79,6 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 icon: passwordIcon,
                 errorMessage: 'Пароли не совпадают',
                 pattern: values.password,
-                required: true,
                 showValidateSvg: values.password === values.confirmPassword && /^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$/.test(values.password),
             },
             {
@@ -90,9 +87,8 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 placeholder: 'E-mail',
                 icon: emailIcon,
                 errorMessage: 'Невалидный email адресс',
-                pattern: `^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$`,
-                required: true,
-                showValidateSvg: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(values.email),
+                pattern: `^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$`,
+                showValidateSvg: /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g.test(values.email),
             },
             {
                 name: 'promo',
@@ -101,23 +97,25 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 icon: promoIcon,
                 errorMessage: 'Error',
                 pattern: '^[A-Za-z0-9-А-Яа-я]{4,16}$',
-                required: true,
                 showValidateSvg: /^[A-Za-z0-9-А-Яа-я]{4,16}$/.test(values.promo),
             },
         ];
 
         const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
             setValues({...values, [e.target.name]: e.target.value});
+
         };
 
         useEffect(() => {
             scaleSecurePassword(values.password, setSecurityPasswordNumber, setSecurityPasswordTitle)
         }, [values.password]);
 
-        const handleSubmit = (e: any) => {
-            e.preventDefault();
+        const handleSubmit = (e: React.SyntheticEvent) => {
+            e.preventDefault()
             if (!checkedRoot) setShowRootServer(true)
         }
+
+        const showInfoServer = () => setShowRootServer(true)
 
         return (
             <div className={s.regist}>
@@ -147,7 +145,7 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
 
                     </div>
                     <div className={s.button_box}>
-                        <Button title={'Правила сервера'} className={`${s.btn} ${s.root_btn}`}/>
+                        <Button title={'Правила сервера'} className={`${s.btn} ${s.root_btn}`} onClick={showInfoServer}/>
                         <Button title={'Создать аккаунт'} className={s.btn} type={'submit'}/>
                     </div>
                 </form>
