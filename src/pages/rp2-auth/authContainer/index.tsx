@@ -35,7 +35,7 @@ const AuthContainer = () => {
                     {showRootServer ?
                         <RootServerInfo setCheckedRoot={setCheckedRoot} setShowRootServer={setShowRootServer}/> : <>
                             <h2>{title}</h2>
-                            <p className={s.authorization__title}>{subTitle}</p>
+                            <div className={s.authorization__title}>{subTitle}</div>
                             <div className={s.navigate}>
                                 <div className={`${s.navigate__login} ${navigation === 'login' && s.active}`}
                                      onClick={() => setNavigation('login')}>Авторизация

@@ -21,8 +21,8 @@ const LoginForm = () => {
             placeholder: 'Логин',
             icon: userIcon,
             errorMessage: 'Логин должен состоять от 4-16 символов',
-            pattern: "^[A-Za-z0-9]{4,16}$",
-            required: true
+            isValidateValue: /^[A-Za-z0-9-А-Яа-я]{4,16}$/.test(values.userName),
+            pattern: '^[A-Za-z0-9-А-Яа-я]{4,16}$',
         },
         {
             name: 'password',
@@ -31,8 +31,8 @@ const LoginForm = () => {
             icon: passwordIcon,
             errorMessage: 'Пароль должен состоять от 6-20 символов',
             showKeyBoardInfo: true,
-            pattern: "^[A-Za-z0-9!@#$%^&*]{6,20}$",
-            required: true
+            isValidateValue: /^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$/.test(values.password),
+            pattern: '^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$',
         }
     ]
 

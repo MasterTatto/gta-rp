@@ -10,14 +10,14 @@ type InputType = {
     handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
     value: string;
     errorMessage: string;
-    pattern: string;
     showKeyBoardInfo?: boolean;
     className?: string;
     securityPassword?: boolean;
     securityPasswordNumber?: number;
     securityPasswordTitle?: string
-    showValidateSvg?: boolean;
-    maxLength?: number
+    isValidateValue?: boolean;
+    maxLength?: number;
+    pattern?: string;
 }
 
 const Input = ({
@@ -34,7 +34,7 @@ const Input = ({
                    securityPassword,
                    securityPasswordNumber,
                    securityPasswordTitle,
-                   showValidateSvg,
+                   isValidateValue,
                    maxLength
                }: InputType) => {
     const [showCaps, setShowCaps] = useState<boolean>(false);
@@ -58,6 +58,7 @@ const Input = ({
     };
 
     const scaleSecurity = Array.from(Array(5).keys());
+
     useEffect(() => {
         const elements = document.querySelectorAll('#item');
 
@@ -71,10 +72,26 @@ const Input = ({
         });
     }, [securityPasswordNumber]);
 
+    useEffect(() => {
+        const input = document.querySelectorAll('input');
+
+        input.forEach((el) => {
+            el!.addEventListener('invalid', (e: any) => {
+
+                e.preventDefault()
+                if (!e.target!.validity.valid) {
+                    setFocused(true)
+                }
+            })
+        })
+    }, [])
+
     return (
         <div className={`${s.input} ${className}`}>
             <input
+                id='input'
                 pattern={pattern}
+                required
                 type={type}
                 placeholder={placeholder}
                 value={value}
@@ -88,7 +105,6 @@ const Input = ({
                 }}
                 maxLength={maxLength}
                 data-focused={focused.toString()}
-                required
                 onFocus={() => name === 'confirmPassword' && setFocused(true)}
             />
             {securityPassword && (
@@ -101,9 +117,10 @@ const Input = ({
                     <span className={s.scaleSecurity__title}>{securityPasswordTitle}</span>
                 </div>
             )}
-            {showValidateSvg && <img className={s.validateSVG} src={validateSVG} alt=''/>}
+            {isValidateValue && <img className={s.validateSVG} src={validateSVG} alt=''/>}
             {showKeyBoardInfo && showCaps && <p className={s.capsLock}>Caps Lock</p>}
             {showKeyBoardInfo && showLanguage && <p className={s.language}>{showLanguage}</p>}
+
             <span className={s.errorMessage}>{errorMessage}</span>
             <img className={s.logo_input} src={icon} alt=''/>
         </div>

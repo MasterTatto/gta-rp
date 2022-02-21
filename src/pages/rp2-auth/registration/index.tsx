@@ -23,12 +23,11 @@ export type InputsType = {
     placeholder: string
     icon: string
     errorMessage: string
-    pattern: string
-    required?: boolean
     showKeyBoardInfo?: boolean
     securityPassword?: boolean
-    showValidateSvg?: boolean
+    isValidateValue?: boolean
     maxLength?: number
+    pattern?: string
 }
 
 type RegistrationType = {
@@ -57,8 +56,9 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 placeholder: 'Логин',
                 icon: userIcon,
                 errorMessage: 'Логин должен состоять от 4-16 символов',
+                isValidateValue: /^[A-Za-z0-9-А-Яа-я]{4,16}$/.test(values.userName),
                 pattern: '^[A-Za-z0-9-А-Яа-я]{4,16}$',
-                showValidateSvg: /^[A-Za-z0-9-А-Яа-я]{4,16}$/.test(values.userName),
+
             },
             {
                 name: 'password',
@@ -67,10 +67,10 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 icon: passwordIcon,
                 errorMessage: 'Пароль должен состоять от 6-20 символов',
                 showKeyBoardInfo: true,
-                pattern: '^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$',
                 securityPassword: true,
                 maxLength: 20,
-                showValidateSvg: /^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$/.test(values.password),
+                isValidateValue: /^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$/.test(values.password),
+                pattern: '^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$',
             },
             {
                 name: 'confirmPassword',
@@ -78,8 +78,8 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 placeholder: 'Подтвердите пароль',
                 icon: passwordIcon,
                 errorMessage: 'Пароли не совпадают',
-                pattern: values.password,
-                showValidateSvg: values.password === values.confirmPassword && /^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$/.test(values.password),
+                isValidateValue: values.password === values.confirmPassword && /^[A-Za-z0-9-А-Яа-я!@#$%^&*]{6,20}$/.test(values.password),
+                pattern: values.password
             },
             {
                 name: 'email',
@@ -87,8 +87,8 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 placeholder: 'E-mail',
                 icon: emailIcon,
                 errorMessage: 'Невалидный email адресс',
-                pattern: `^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$`,
-                showValidateSvg: /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g.test(values.email),
+                isValidateValue: /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g.test(values.email),
+                pattern: '^\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$'
             },
             {
                 name: 'promo',
@@ -96,8 +96,7 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
                 placeholder: 'Промокод',
                 icon: promoIcon,
                 errorMessage: 'Error',
-                pattern: '^[A-Za-z0-9-А-Яа-я]{4,16}$',
-                showValidateSvg: /^[A-Za-z0-9-А-Яа-я]{4,16}$/.test(values.promo),
+                isValidateValue: /^[A-Za-z0-9-А-Яа-я]{4,16}$/.test(values.promo),
             },
         ];
 
@@ -116,6 +115,7 @@ const Registration = ({checkedRoot, setCheckedRoot, setShowRootServer}: Registra
         }
 
         const showInfoServer = () => setShowRootServer(true)
+
 
         return (
             <div className={s.regist}>

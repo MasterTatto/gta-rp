@@ -46,8 +46,10 @@ const Carousel = ({delay, data, length}: CarouselType) => {
                             className={s.slide}
                             key={index}
                         >
-                            <p className={s.slide__title}><span
-                                className={s.slide__title__first}>{firstWord}</span>-{secondWords}</p>
+                            <p className={s.slide__title}>
+                                <span
+                                    className={s.slide__title__first}>{firstWord}</span>-{secondWords}
+                            </p>
                         </div>
                     }
                 )}
