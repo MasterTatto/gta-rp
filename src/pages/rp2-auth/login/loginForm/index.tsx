@@ -7,7 +7,6 @@ import userIcon from "../../../../assets/icons/input-icons/user.svg";
 import passwordIcon from "../../../../assets/icons/input-icons/password.svg";
 
 const LoginForm = () => {
-
     const [rememberMe, setRememberMe] = useState<boolean>(false)
     const [values, setValues] = useState({
         userName: '',

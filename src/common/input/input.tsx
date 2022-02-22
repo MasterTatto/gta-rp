@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, FormEventHandler, KeyboardEvent, useEffect, useState} from 'react';
 import s from './style.module.css';
 import validateSVG from '../../assets/icons/input-icons/validate.svg';
 
@@ -72,19 +72,12 @@ const Input = ({
         });
     }, [securityPasswordNumber]);
 
-    useEffect(() => {
-        const input = document.querySelectorAll('input');
-
-        input.forEach((el) => {
-            el!.addEventListener('invalid', (e: any) => {
-
-                e.preventDefault()
-                if (!e.target!.validity.valid) {
-                    setFocused(true)
-                }
-            })
-        })
-    }, [])
+    const invalidEvent = (e: FormEventHandler<HTMLInputElement> | any) => {
+        e.preventDefault()
+        if (!e.target!.validity.valid) {
+            setFocused(true)
+        }
+    }
 
     return (
         <div className={`${s.input} ${className}`}>
@@ -103,10 +96,12 @@ const Input = ({
                     setShowLanguage('');
                     setShowCaps(false);
                 }}
+                onInvalid={invalidEvent}
                 maxLength={maxLength}
                 data-focused={focused.toString()}
                 onFocus={() => name === 'confirmPassword' && setFocused(true)}
             />
+
             {securityPassword && (
                 <div className={s.scaleSecurity}>
                     <div className={s.scaleSecurity__box}>
@@ -117,6 +112,7 @@ const Input = ({
                     <span className={s.scaleSecurity__title}>{securityPasswordTitle}</span>
                 </div>
             )}
+
             {isValidateValue && <img className={s.validateSVG} src={validateSVG} alt=''/>}
             {showKeyBoardInfo && showCaps && <p className={s.capsLock}>Caps Lock</p>}
             {showKeyBoardInfo && showLanguage && <p className={s.language}>{showLanguage}</p>}
